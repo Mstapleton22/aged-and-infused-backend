@@ -181,7 +181,7 @@ exports.seed = function (knex, Promise) {
           id: 21,
           name: "Sports Pepper",
           image:
-            "/public/orange.png",
+            "https://accustudios.com/wp-content/uploads/2019/04/yellow-peppers.png",
           // Liquor_id:
           // Liquor_name: Whiskey, vodka
         }
