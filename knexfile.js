@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgresql://localhost:5432/aged_and_infused'
+    connection: { database: process.env.DATABASE_URL }
   },
 
 
