@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "knex": "^0.16.3",
+    "express": "^4.16.4",
     "pg": "^7.9.0"
   },
   "engines": {
@@ -30,7 +31,6 @@
     "node": "11.0.0"
   },
   "devDependencies": {
-    "express": "^4.16.4",
     "serve-static": "^1.13.2"
   }
 }
