@@ -8,7 +8,7 @@ const knex = require('knex')(config)
 const history = require('connect-history-api-fallback')
 const serveStatic = require('serve-static')
 
-app.use("/", serveStatic ( path.join (__dirname, '/dist') ) )
+app.use("/", serveStatic(path.join(__dirname, '/dist')))
 app.use(history({
   verbose: true
 }))
@@ -16,6 +16,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 const cors = require('cors')
 app.use(cors())
+
+app.get('*', function (req, res) {
+  res.sendFile(__dirname + '/dist/index.html')
+})
 
 app.get('/preset', (req, res, next) => {
   knex('preset')
