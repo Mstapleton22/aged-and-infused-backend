@@ -5,7 +5,12 @@ const port = process.env.PORT || 3000
 const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const knex = require('knex')(config)
+const history = require('connect-history-api-fallback')
 
+app.use(history({
+  // OPTIONAL: Includes more verbose logging
+  verbose: true
+}))
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 const cors = require('cors')
