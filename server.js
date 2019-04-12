@@ -6,9 +6,9 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const knex = require('knex')(config)
 // const history = require('connect-history-api-fallback')
-const serveStatic = require('serve-static')
+// const serveStatic = require('serve-static')
 
-app.use("/", serveStatic(path.join(__dirname, '/dist')))
+// app.use("/", serveStatic(path.join(__dirname, '/dist')))
 // app.use(history({
 //   verbose: true
 // }))
