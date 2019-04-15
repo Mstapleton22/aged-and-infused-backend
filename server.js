@@ -17,76 +17,81 @@ app.use(bodyParser.json())
 const cors = require('cors')
 app.use(cors())
 
-// app.get('*', function (req, res) {
-//   res.sendFile(__dirname + '/dist/index.html')
-// })
-
-app.get('/preset', (req, res, next) => {
-  knex('preset')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
-
-app.get('/ingredientcategory', (req, res, next) => {
-  knex('ingredient_category')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
-
-app.get('/liquor', (req, res, next) => {
-  knex('liquor')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
-
-app.get('/ingredients', (req, res, next) => {
-  knex('ingredients')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
-
-app.get('/ingredients/:image', (req, res, next) => {
-  knex('ingredients')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
-
-app.get('/category_and_ingredient', (req, res, next) => {
-  knex('category_and_ingredient')
-    .then((rows) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      next(err)
-    })
-})
 app.use(function (req, res, next) {
-  res.status(200).send("It works, it's just not getting you what you need")
-})
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 
-app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
-})
+  // app.get('*', function (req, res) {
+  //   res.sendFile(__dirname + '/dist/index.html')
+  // })
+
+  app.get('/preset', (req, res, next) => {
+    knex('preset')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+
+  app.get('/ingredientcategory', (req, res, next) => {
+    knex('ingredient_category')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+
+  app.get('/liquor', (req, res, next) => {
+    knex('liquor')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+
+  app.get('/ingredients', (req, res, next) => {
+    knex('ingredients')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+
+  app.get('/ingredients/:image', (req, res, next) => {
+    knex('ingredients')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+
+  app.get('/category_and_ingredient', (req, res, next) => {
+    knex('category_and_ingredient')
+      .then((rows) => {
+        res.send(rows)
+      })
+      .catch((err) => {
+        next(err)
+      })
+  })
+  app.use(function (req, res, next) {
+    res.status(200).send("It works, it's just not getting you what you need")
+  })
+
+  app.use(function (req, res, next) {
+    res.status(404).send("Sorry can't find that!")
+  })
 
 
-app.listen(port, () => console.log(`App listening on port ${port}!`))
+  app.listen(port, () => console.log(`App listening on port ${port}!`))

@@ -10,6 +10,7 @@ exports.up = (knex, Promise) => {
     knex.schema.createTable('liquor', table => {
       table.integer('id').primary()
       table.string('name')
+      // table.array('cocktails')
     }),
     knex.schema.createTable('ingredient_category', table => {
       table.integer('id').primary()
